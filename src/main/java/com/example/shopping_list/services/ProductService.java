@@ -1,10 +1,10 @@
-package com.example.product_app.services;
+package com.example.shopping_list.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.example.product_app.models.Product;
-import com.example.product_app.repositories.ProductRepository;
+import com.example.shopping_list.models.Product;
+import com.example.shopping_list.repositories.ProductRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

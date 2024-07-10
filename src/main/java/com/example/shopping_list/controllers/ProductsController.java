@@ -1,8 +1,10 @@
-package com.example.product_app.controllers;
+package com.example.shopping_list.controllers;
 
 import java.util.List;
-import com.example.product_app.models.Product;
-import com.example.product_app.services.ProductService;
+
+import com.example.shopping_list.models.Product;
+import com.example.shopping_list.services.ProductService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

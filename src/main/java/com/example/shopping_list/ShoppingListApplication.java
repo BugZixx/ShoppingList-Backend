@@ -1,13 +1,13 @@
-package com.example.product_app;
+package com.example.shopping_list;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductAppApplication {
+public class ShoppingListApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductAppApplication.class, args);
+		SpringApplication.run(ShoppingListApplication.class, args);
 	}
 
 }
