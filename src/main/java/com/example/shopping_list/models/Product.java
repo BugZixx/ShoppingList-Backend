@@ -12,8 +12,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long product_id;
     private String product_name;
-    private String product_description;
-    private double product_price;
+    private boolean checked;
     
     public Product() {
     }
@@ -34,22 +33,13 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public String getProduct_description() {
-        return product_description;
+    public boolean isChecked() {
+        return checked;
     }
 
-    public void setProduct_description(String product_description) {
-        this.product_description = product_description;
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 
-    public double getProduct_price() {
-        return product_price;
-    }
-
-    public void setProduct_price(double product_price) {
-        this.product_price = product_price;
-    }
-
-    
 
 }
