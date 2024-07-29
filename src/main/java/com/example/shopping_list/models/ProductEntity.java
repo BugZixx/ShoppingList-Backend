@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity(name="products")
 public class ProductEntity {
@@ -16,6 +18,9 @@ public class ProductEntity {
     private String product_name;
     private boolean checked;
     private Integer row_num;
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private ShopEntity shop;
 
     public ProductEntity() {
     }
@@ -50,6 +55,14 @@ public class ProductEntity {
 
     public void setRow_num(int row_num) {
         this.row_num = row_num;
+    }
+
+    public ShopEntity getShop() {
+        return shop;
+    }
+
+    public void setShop(ShopEntity shop) {
+        this.shop = shop;
     }
 
 }

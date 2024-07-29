@@ -23,6 +23,10 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
+    public List<ProductEntity> getProductsByShopName(String shop_name){
+        return productRepository.findByShop_ShopNameContainingIgnoreCase(shop_name);
+    }
+
     public ProductEntity createProduct(ProductEntity product){
         return productRepository.save(product);
     }
@@ -32,6 +36,7 @@ public class ProductService {
         product.setProduct_name(productDetails.getProduct_name());
         product.setChecked(productDetails.isChecked());
         product.setRow_num(productDetails.getRow_num());
+        product.setShop(productDetails.getShop());
         return productRepository.save(product);
     }
 

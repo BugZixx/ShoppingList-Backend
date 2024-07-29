@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -34,6 +35,11 @@ public class ProductsController {
         return ResponseEntity.ok(product);
     }
 
+    @GetMapping("/shop")
+    public List<ProductEntity> getProductsByShopName(@RequestParam String shop_name) {
+        return productService.getProductsByShopName(shop_name);
+    }
+
     @PostMapping
     public ProductEntity create(@RequestBody ProductEntity product) {
         return productService.createProduct(product);
@@ -52,7 +58,7 @@ public class ProductsController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ProductEntity> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
