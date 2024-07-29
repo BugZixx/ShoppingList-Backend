@@ -3,7 +3,7 @@ package com.example.shopping_list.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.shopping_list.models.Product;
+import com.example.shopping_list.models.ProductEntity;
 import com.example.shopping_list.repositories.ProductRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,27 +15,32 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> getAllProducts(){
+    public List<ProductEntity> getAllProducts(){
         return productRepository.findAll();
     }
 
-    public Optional<Product> getProductById(Long id){
+    public Optional<ProductEntity> getProductById(Long id){
         return productRepository.findById(id);
     }
 
-    public Product createProduct(Product product){
+    public ProductEntity createProduct(ProductEntity product){
         return productRepository.save(product);
     }
 
-    public Product updateProduct(Long id, Product productDetails) {
-        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+    public ProductEntity updateProduct(Long id, ProductEntity productDetails) {
+        ProductEntity product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
         product.setProduct_name(productDetails.getProduct_name());
         product.setChecked(productDetails.isChecked());
+        product.setRow_num(productDetails.getRow_num());
         return productRepository.save(product);
+    }
+
+    public List<ProductEntity> updateProducts(List<ProductEntity> products) {
+        return productRepository.saveAll(products);
     }
 
     public void deleteProduct(Long id) {
-        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        ProductEntity product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
         productRepository.delete(product);
     }
 

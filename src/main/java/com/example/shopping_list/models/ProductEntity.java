@@ -1,20 +1,23 @@
 package com.example.shopping_list.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity(name="products")
-public class Product {
+public class ProductEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long product_id;
+    @Column(nullable = false)
     private String product_name;
     private boolean checked;
-    
-    public Product() {
+    private Integer row_num;
+
+    public ProductEntity() {
     }
 
     public Long getProduct_id() {
@@ -41,5 +44,12 @@ public class Product {
         this.checked = checked;
     }
 
+    public Integer getRow_num() {
+        return row_num;
+    }
+
+    public void setRow_num(int row_num) {
+        this.row_num = row_num;
+    }
 
 }
