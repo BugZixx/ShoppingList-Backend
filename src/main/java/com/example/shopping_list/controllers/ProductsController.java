@@ -2,6 +2,7 @@ package com.example.shopping_list.controllers;
 
 import java.util.List;
 
+import com.example.shopping_list.models.ProductDTO;
 import com.example.shopping_list.models.ProductEntity;
 import com.example.shopping_list.services.ProductService;
 
@@ -41,12 +42,12 @@ public class ProductsController {
     }
 
     @PostMapping
-    public ProductEntity create(@RequestBody ProductEntity product) {
+    public ProductEntity create(@RequestBody ProductDTO product) {
         return productService.createProduct(product);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductEntity> updateProduct(@PathVariable Long id, @RequestBody ProductEntity productDetails) {
+    public ResponseEntity<ProductEntity> updateProduct(@PathVariable Long id, @RequestBody ProductDTO productDetails) {
         ProductEntity updatedProduct = productService.updateProduct(id, productDetails);
         return ResponseEntity.ok(updatedProduct);
     }

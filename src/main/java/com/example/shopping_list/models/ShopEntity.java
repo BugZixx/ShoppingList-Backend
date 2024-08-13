@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
 @Entity(name = "shops")
@@ -18,6 +19,7 @@ public class ShopEntity {
     private String shopName;
 
     @OneToMany(mappedBy = "shop")
+    @JoinColumn(name = "shop_id")
     private Set<ProductEntity> products;
 
 
